@@ -11,6 +11,7 @@ extension WithHotspotX on Widget {
     required String body,
     TextStyle? titleTextStyle,
     TextStyle? bodyTextStyle,
+    double? titleBodySpace,
     Widget? icon,
     Size? hotspotSize,
     Offset hotspotOffset = Offset.zero,
@@ -45,7 +46,7 @@ extension WithHotspotX on Widget {
                       ),
                     if (title.isNotEmpty && body.isNotEmpty)
                       SizedBox(
-                        height: 12,
+                        height: titleBodySpace ?? 12,
                       ),
                     if (body.isNotEmpty)
                       Text(
