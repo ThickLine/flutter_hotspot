@@ -105,7 +105,7 @@ class HotspotTestScreen extends StatelessWidget {
                     flow: mainFlowKey,
                     order: 1,
                     title: 'Title 1',
-                    text: 'Text 1',
+                    body: 'Text 1',
                   ),
                 ),
 
@@ -121,7 +121,7 @@ class HotspotTestScreen extends StatelessWidget {
                     flow: mainFlowKey,
                     order: 2,
                     title: 'Title 2',
-                    text: 'Text 2',
+                    body: 'Text 2',
                   ),
                 ),
 
@@ -137,7 +137,7 @@ class HotspotTestScreen extends StatelessWidget {
                     flow: secondaryFlowKey,
                     order: 3,
                     title: 'Title 3',
-                    text: 'Text 3',
+                    body: 'Text 3',
                   ),
                 ),
 
@@ -153,7 +153,7 @@ class HotspotTestScreen extends StatelessWidget {
                     flow: secondaryFlowKey,
                     order: 4,
                     title: 'Title 4',
-                    text: 'Text 4',
+                    body: 'Text 4',
                   ),
                 ),
               ],

@@ -60,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text('hotspot').withHotspot(
           order: 1,
           title: "Let's get started!",
-          text: "We're going to give you an example tour with hotspot",
+          body: "We're going to give you an example tour with hotspot",
         ),
         actions: [
           IconButton(
@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ).withHotspot(
             order: 4,
             title: 'Tour It!',
-            text: 'Want to see the tour again? Tap this button',
+            body: 'Want to see the tour again? Tap this button',
           ),
         ],
       ),
@@ -88,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ).withHotspot(
               order: 2,
               title: 'Count It!',
-              text:
+              body:
                   'This is the number of times you\'ve smashed the like button',
             ),
           ],
@@ -101,7 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ).withHotspot(
         order: 3,
         title: 'Smash It!',
-        text: 'Smash this button after the tour.',
+        body: 'Smash this button after the tour.',
       ),
     );
   }

@@ -8,7 +8,9 @@ extension WithHotspotX on Widget {
     String flow = 'main',
     required num order,
     required String title,
-    required String text,
+    required String body,
+    TextStyle? titleTextStyle,
+    TextStyle? bodyTextStyle,
     Widget? icon,
     Size? hotspotSize,
     Offset hotspotOffset = Offset.zero,
@@ -37,17 +39,18 @@ extension WithHotspotX on Widget {
                     if (title.isNotEmpty)
                       Text(
                         title,
-                        style: theme.textTheme.subtitle1!
-                            .copyWith(fontWeight: FontWeight.w600),
+                        style: titleTextStyle ??
+                            theme.textTheme.subtitle1!
+                                .copyWith(fontWeight: FontWeight.w600),
                       ),
-                    if (title.isNotEmpty && text.isNotEmpty)
+                    if (title.isNotEmpty && body.isNotEmpty)
                       SizedBox(
                         height: 12,
                       ),
-                    if (text.isNotEmpty)
+                    if (body.isNotEmpty)
                       Text(
-                        text,
-                        style: theme.textTheme.bodyText2,
+                        body,
+                        style: bodyTextStyle ?? theme.textTheme.bodyText2,
                       ),
                   ],
                 ),
