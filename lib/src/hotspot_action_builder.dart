@@ -30,8 +30,8 @@ class HotspotActionBuilder extends StatelessWidget {
             opacity: 0.5,
             child: TextButton(
               child: Text(controller.isFirstPage
-                  ? settings!.endText
-                  : settings!.previousText),
+                  ? settings?.endText ?? 'End tour'
+                  : settings?.previousText ?? 'Previous'),
               onPressed: () {
                 controller.previous();
               },
@@ -72,8 +72,8 @@ class HotspotActionBuilder extends StatelessWidget {
             width: 82,
             child: ElevatedButton(
               child: Text(controller.isLastPage
-                  ? settings!.doneText
-                  : settings!.nextText),
+                  ? settings?.doneText ?? 'Done'
+                  : settings?.nextText ?? 'Next'),
               onPressed: () {
                 controller.next();
               },
