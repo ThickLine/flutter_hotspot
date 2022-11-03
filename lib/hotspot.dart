@@ -13,3 +13,4 @@ export 'src/hotspot_action_builder.dart';
 export 'src/hotspot_provider.dart';
 export 'src/hotspot_target.dart';
 export 'src/with_hotspot_x.dart';
+export 'src/builder_settings.dart';

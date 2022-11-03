@@ -104,8 +104,10 @@ class HotspotTestScreen extends StatelessWidget {
                   ).withHotspot(
                     flow: mainFlowKey,
                     order: 1,
-                    title: 'Title 1',
-                    body: 'Text 1',
+                    title: Text(
+                      'Text 1',
+                    ),
+                    body: Text('Text 1'),
                   ),
                 ),
 
@@ -120,8 +122,10 @@ class HotspotTestScreen extends StatelessWidget {
                   ).withHotspot(
                     flow: mainFlowKey,
                     order: 2,
-                    title: 'Title 2',
-                    body: 'Text 2',
+                    title: Text(
+                      'Text 1',
+                    ),
+                    body: Text('Text 2'),
                   ),
                 ),
 
@@ -136,8 +140,10 @@ class HotspotTestScreen extends StatelessWidget {
                   ).withHotspot(
                     flow: secondaryFlowKey,
                     order: 3,
-                    title: 'Title 3',
-                    body: 'Text 3',
+                    title: Text(
+                      'Text 1',
+                    ),
+                    body: Text('Text 3'),
                   ),
                 ),
 
@@ -152,8 +158,10 @@ class HotspotTestScreen extends StatelessWidget {
                   ).withHotspot(
                     flow: secondaryFlowKey,
                     order: 4,
-                    title: 'Title 4',
-                    body: 'Text 4',
+                    title: Text(
+                      'Text 1',
+                    ),
+                    body: Text('Text 4'),
                   ),
                 ),
               ],

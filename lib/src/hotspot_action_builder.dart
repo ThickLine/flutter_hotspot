@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:hotspot/src/builder_settings.dart';
 
 import 'hotspot_provider.dart';
 
 class HotspotActionBuilder extends StatelessWidget {
-  /// Used on all hotspots, builds the buttons and item indicator.
-  HotspotActionBuilder(this.controller);
+  //* Use [BuilderSettings] for custom trasnlation
+  const HotspotActionBuilder(
+    this.controller, {
+    Key? key,
+    this.settings,
+  }) : super(key: key);
 
   final CalloutActionController controller;
-
+  final BuilderSettings? settings;
   final _duration = const Duration(milliseconds: 250);
   final _curve = Curves.easeOutCirc;
 
@@ -24,7 +29,9 @@ class HotspotActionBuilder extends StatelessWidget {
           Opacity(
             opacity: 0.5,
             child: TextButton(
-              child: Text(controller.isFirstPage ? 'End tour' : 'Previous'),
+              child: Text(controller.isFirstPage
+                  ? settings!.endText
+                  : settings!.previousText),
               onPressed: () {
                 controller.previous();
               },
@@ -64,7 +71,9 @@ class HotspotActionBuilder extends StatelessWidget {
           SizedBox(
             width: 82,
             child: ElevatedButton(
-              child: Text(controller.isLastPage ? 'Done' : 'Next'),
+              child: Text(controller.isLastPage
+                  ? settings!.doneText
+                  : settings!.nextText),
               onPressed: () {
                 controller.next();
               },

@@ -4,13 +4,12 @@ import 'hotspot_target.dart';
 
 extension WithHotspotX on Widget {
   /// Wrap this widget with a branded [HotspotTarget]
+  /// Use [BuilderSettings] in [HotspotProvider] for custom trasnlation options
   Widget withHotspot({
     String flow = 'main',
     required num order,
-    required String title,
-    required String body,
-    TextStyle? titleTextStyle,
-    TextStyle? bodyTextStyle,
+    required Widget title,
+    required Widget body,
     double? titleBodySpace,
     Widget? icon,
     Size? hotspotSize,
@@ -18,8 +17,6 @@ extension WithHotspotX on Widget {
   }) {
     return Builder(
       builder: (context) {
-        final theme = Theme.of(context);
-
         return HotspotTarget(
           flow: flow,
           hotspotSize: hotspotSize,
@@ -37,22 +34,11 @@ extension WithHotspotX on Widget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    if (title.isNotEmpty)
-                      Text(
-                        title,
-                        style: titleTextStyle ??
-                            theme.textTheme.subtitle1!
-                                .copyWith(fontWeight: FontWeight.w600),
-                      ),
-                    if (title.isNotEmpty && body.isNotEmpty)
-                      SizedBox(
-                        height: titleBodySpace ?? 12,
-                      ),
-                    if (body.isNotEmpty)
-                      Text(
-                        body,
-                        style: bodyTextStyle ?? theme.textTheme.bodyText2,
-                      ),
+                    title,
+                    SizedBox(
+                      height: titleBodySpace ?? 12,
+                    ),
+                    body
                   ],
                 ),
               ),

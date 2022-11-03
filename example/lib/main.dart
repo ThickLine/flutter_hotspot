@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: HotspotProvider(
-        actionBuilder: (context, controller) =>
-            HotspotActionBuilder(controller),
+        actionBuilder: (context, controller) => HotspotActionBuilder(controller,
+            settings: BuilderSettings(nextText: "dsadas")),
         color: Colors.white,
         child: const MyHomePage(title: 'Flutter Demo Home Page'),
       ),
@@ -59,8 +59,11 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: const Text('hotspot').withHotspot(
           order: 1,
-          title: "Let's get started!",
-          body: "We're going to give you an example tour with hotspot",
+          title: const Text(
+            "Let's get started!",
+          ),
+          body: const Text(
+              "We're going to give you an example tour with hotspot"),
         ),
         actions: [
           IconButton(
@@ -70,8 +73,10 @@ class _MyHomePageState extends State<MyHomePage> {
             },
           ).withHotspot(
             order: 4,
-            title: 'Tour It!',
-            body: 'Want to see the tour again? Tap this button',
+            title: const Text(
+              "Let's get started!",
+            ),
+            body: const Text('Want to see the tour again? Tap this button'),
           ),
         ],
       ),
@@ -87,9 +92,11 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headline4,
             ).withHotspot(
               order: 2,
-              title: 'Count It!',
-              body:
-                  'This is the number of times you\'ve smashed the like button',
+              title: const Text(
+                "Let's get started!",
+              ),
+              body: const Text(
+                  'This is the number of times you\'ve smashed the like button'),
             ),
           ],
         ),
@@ -100,8 +107,12 @@ class _MyHomePageState extends State<MyHomePage> {
         child: const Icon(Icons.thumb_up),
       ).withHotspot(
         order: 3,
-        title: 'Smash It!',
-        body: 'Smash this button after the tour.',
+        title: const Text(
+          "Let's get started!",
+        ),
+        body: const Text(
+          'Smash this button after the tour.',
+        ),
       ),
     );
   }
