@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hotspot/src/builder_settings.dart';
+import 'package:hotspot/src/helper/color_extension.dart';
 
 import 'hotspot_provider.dart';
 
@@ -18,6 +19,8 @@ class HotspotActionBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Get HotspotProvider state color
+    final bgColor = HotspotProvider.of(context).widget.color;
     return Padding(
       padding: EdgeInsets.only(bottom: 10) +
           EdgeInsets.symmetric(
@@ -27,11 +30,13 @@ class HotspotActionBuilder extends StatelessWidget {
         children: [
           /// Back / end tour button
           Opacity(
-            opacity: 0.5,
+            opacity: 0.8,
             child: TextButton(
-              child: Text(controller.isFirstPage
-                  ? settings?.endText ?? 'End tour'
-                  : settings?.previousText ?? 'Previous'),
+              child: Text(
+                  controller.isFirstPage
+                      ? settings?.endText ?? 'End tour'
+                      : settings?.previousText ?? 'Previous',
+                  style: TextStyle().copyWith(color: bgColor.cv)),
               onPressed: () {
                 controller.previous();
               },
@@ -53,8 +58,9 @@ class HotspotActionBuilder extends StatelessWidget {
                       curve: _curve,
                       decoration: BoxDecoration(
                         color: controller.index == i
-                            ? Colors.white
-                            : Colors.white30,
+                            ? settings?.primaryColor.withOpacity(0.2) ??
+                                Colors.white
+                            : settings?.primaryColor ?? Colors.white30,
                         borderRadius: BorderRadius.circular(99),
                       ),
                       height: 6,
@@ -71,9 +77,14 @@ class HotspotActionBuilder extends StatelessWidget {
           SizedBox(
             width: 82,
             child: ElevatedButton(
-              child: Text(controller.isLastPage
-                  ? settings?.doneText ?? 'Done'
-                  : settings?.nextText ?? 'Next'),
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: settings?.primaryColor ?? Colors.blue),
+              child: Text(
+                  controller.isLastPage
+                      ? settings?.doneText ?? 'Done'
+                      : settings?.nextText ?? 'Next',
+                  style:
+                      TextStyle().copyWith(color: settings?.primaryColor.cv)),
               onPressed: () {
                 controller.next();
               },
