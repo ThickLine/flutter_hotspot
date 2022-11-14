@@ -18,8 +18,9 @@ class MyApp extends StatelessWidget {
       ),
       home: HotspotProvider(
         actionBuilder: (context, controller) => HotspotActionBuilder(controller,
-            settings: BuilderSettings(primaryColor: Colors.black)),
-        color: Colors.black,
+            settings: BuilderSettings(
+                primaryColor: Colors.black, nextText: "Nākamais")),
+        color: Colors.yellow,
         child: const MyHomePage(title: 'Flutter Demo Home Page'),
       ),
     );

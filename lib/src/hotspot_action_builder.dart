@@ -46,7 +46,6 @@ class HotspotActionBuilder extends StatelessWidget {
           /// The number of hotspots indicator. It will auto-scale its size to fit if
           /// it has too many items to fit horizontally.
           Expanded(
-            flex: 4,
             child: FittedBox(
               fit: BoxFit.scaleDown,
               child: Row(
@@ -71,24 +70,18 @@ class HotspotActionBuilder extends StatelessWidget {
             ),
           ),
 
-          SizedBox(width: 18),
-
           /// Next / done button.
-          SizedBox(
-            width: 82,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: settings?.primaryColor ?? Colors.blue),
-              child: Text(
-                  controller.isLastPage
-                      ? settings?.doneText ?? 'Done'
-                      : settings?.nextText ?? 'Next',
-                  style:
-                      TextStyle().copyWith(color: settings?.primaryColor.cv)),
-              onPressed: () {
-                controller.next();
-              },
-            ),
+          ElevatedButton(
+            style: ElevatedButton.styleFrom(
+                backgroundColor: settings?.primaryColor ?? Colors.blue),
+            child: Text(
+                controller.isLastPage
+                    ? settings?.doneText ?? 'Done'
+                    : settings?.nextText ?? 'Next',
+                style: TextStyle().copyWith(color: settings?.primaryColor.cv)),
+            onPressed: () {
+              controller.next();
+            },
           ),
         ],
       ),
