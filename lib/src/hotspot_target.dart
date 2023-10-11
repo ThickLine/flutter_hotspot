@@ -114,9 +114,14 @@ class HotspotTargetState extends State<HotspotTarget> {
   }
 
   /// Convenience getter to find the global paint bounds of this [HotspotTarget]
-  Rect get globalPaintBounds =>
-      (context.findRenderObject() as RenderBox).paintBounds.shift(
-          (context.findRenderObject() as RenderBox).localToGlobal(Offset.zero));
+  Rect get globalPaintBounds {
+    final baseRect = (context.findRenderObject() as RenderBox).paintBounds;
+    final baseOffset =
+        (context.findRenderObject() as RenderBox).localToGlobal(Offset.zero);
+    final adjustedOffset =
+        baseOffset + widget.hotspotOffset; // Add the custom offset
+    return baseRect.shift(adjustedOffset);
+  }
 
   @override
   Widget build(BuildContext context) {
