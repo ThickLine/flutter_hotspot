@@ -21,28 +21,30 @@ extension WithHotspotX on Widget {
           flow: flow,
           hotspotSize: hotspotSize,
           hotspotOffset: hotspotOffset,
-          calloutBody: Row(
-            children: [
-              if (icon != null) ...[
-                IconTheme(
-                  data: IconThemeData(color: Colors.white),
-                  child: icon,
+          calloutBody: SingleChildScrollView(
+            child: Row(
+              children: [
+                if (icon != null) ...[
+                  IconTheme(
+                    data: IconThemeData(color: Colors.white),
+                    child: icon,
+                  ),
+                  SizedBox(width: 16),
+                ],
+                Flexible(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      title,
+                      SizedBox(
+                        height: titleBodySpace ?? 12,
+                      ),
+                      body
+                    ],
+                  ),
                 ),
-                SizedBox(width: 16),
               ],
-              Flexible(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    title,
-                    SizedBox(
-                      height: titleBodySpace ?? 12,
-                    ),
-                    body
-                  ],
-                ),
-              ),
-            ],
+            ),
           ),
           order: order,
           child: this,
