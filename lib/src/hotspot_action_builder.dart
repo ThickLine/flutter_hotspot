@@ -87,11 +87,12 @@ class HotspotActionBuilder extends StatelessWidget {
                     : settings?.nextText ?? 'Next',
                 style: TextStyle().copyWith(color: settings?.primaryColor.cv)),
             onPressed: () {
+              controller.next();
               if (controller.isLastPage && onTourCompleted != null) {
                 onTourCompleted!();
               }
 
-              controller.next();
+
             },
           ),
         ],
