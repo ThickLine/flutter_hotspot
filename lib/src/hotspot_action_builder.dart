@@ -3,13 +3,15 @@ import 'package:hotspot/src/builder_settings.dart';
 import 'package:hotspot/src/helper/color_extension.dart';
 
 import 'hotspot_provider.dart';
-
+typedef TourCompletedCallback = void Function();
 class HotspotActionBuilder extends StatelessWidget {
+  final TourCompletedCallback? onTourCompleted;
   //* Use [BuilderSettings] for custom trasnlation
   const HotspotActionBuilder(
     this.controller, {
     Key? key,
     this.settings,
+    this.onTourCompleted,
   }) : super(key: key);
 
   final CalloutActionController controller;
@@ -80,6 +82,9 @@ class HotspotActionBuilder extends StatelessWidget {
                     : settings?.nextText ?? 'Next',
                 style: TextStyle().copyWith(color: settings?.primaryColor.cv)),
             onPressed: () {
+              if (controller.isLastPage && onTourCompleted != null) {
+                onTourCompleted!();
+              }
               controller.next();
             },
           ),
