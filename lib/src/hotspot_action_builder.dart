@@ -40,12 +40,10 @@ class HotspotActionBuilder extends StatelessWidget {
                       : settings?.previousText ?? 'Previous',
                   style: TextStyle().copyWith(color: bgColor.cv)),
               onPressed: () {
-                controller.previous();
-                if (onTourCompleted != null) {
+                if (controller.isFirstPage && onTourCompleted != null) {
                   onTourCompleted!();
                 }
-
-
+                controller.previous();
               },
             ),
           ),
@@ -91,8 +89,6 @@ class HotspotActionBuilder extends StatelessWidget {
               if (controller.isLastPage && onTourCompleted != null) {
                 onTourCompleted!();
               }
-
-
             },
           ),
         ],
